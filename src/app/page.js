@@ -19,19 +19,22 @@ export default function Home() {
   const [errorMsg, setErrorMsg] = useState(false);
   const [error, setError] = useState(false);
   const [successful, SetSuccessful] = useState(false);
-  // For Mobile Devices
-  const [isMobile, setIsMobile] = useState(
-    window.matchMedia("(max-width: 1020px)").matches
-  );
+  const [isMobile, setIsMobile] = useState(false); // Default state
 
   useEffect(() => {
+    // Ensure this code runs only on the client-side
     const mediaQuery = window.matchMedia("(max-width: 1020px)");
+
+    // Set the initial state
+    setIsMobile(mediaQuery.matches);
+
+    // Define a handler to update the state
     const handleMediaChange = () => setIsMobile(mediaQuery.matches);
 
-    // Add listener
+    // Add the event listener
     mediaQuery.addEventListener("change", handleMediaChange);
 
-    // Clean up the listener
+    // Cleanup the listener on component unmount
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
   }, []);
 
@@ -74,7 +77,7 @@ function Menu() {
   return (
     <div className="drawer drawer-end absolute top-0 left-0 right-0 z-10">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex  justify-end">
+      <div className="drawer-content flex justify-end">
         {/* Page content here */}
         <label
           htmlFor="my-drawer-4"
