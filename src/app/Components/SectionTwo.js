@@ -21,7 +21,7 @@ export default function SectionTwo({
   async function shortLink(userLink) {
     const API_URL = "https://api.tinyurl.com/create";
     const API_KEY =
-      "auQlsUvfKeE2exiDePFXwywXH5pWhV4GjFmdCDLsKPQc7zNc8uW9MIbvqeUK"; // Replace with your TinyURL API key
+      "98hlVcRMvBFiDsJgVIlJGaiX8VdKmx7XRgf7ByrVRZU6FAuPSQipOUKDOSrO"; // Replace with your TinyURL API key
     console.log(userLink);
     setLoading(true);
 
